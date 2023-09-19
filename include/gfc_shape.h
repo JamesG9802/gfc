@@ -7,7 +7,6 @@
 
 #include "gfc_vector.h"
 #include "gfc_color.h"
-#include "gfc_list.h"
 
 
 /**
@@ -64,14 +63,6 @@ Uint8 gfc_shape_compare(Shape a, Shape b);
  * @return 0 on error or 1 on success
  */
 int gfc_shape_from_json(SJson *json,Shape *shape);
-
-/**
- * @brief get rect information out of a json value
- * @param json the json to parse
- * @param rect [output] save the results here
- * @return false on failure, true on success
- */
-int gfc_rect_from_json(SJson *json,Rect *rect);
 
 /**
  * @brief make a GF2D Rect
@@ -503,52 +494,5 @@ Vector2D gfc_shape_get_normal_for_cirlce(Shape s, Circle c);
  * @return the center point of the rect
  */
 Vector2D gfc_rect_get_center_point(Rect r);
-
-/**
- * @brief get the interpolated point along a bezier curve described by the points provided in 2d space
- * @param p0 a point bounding the curve
- * @param p1 a point bounding the curve
- * @param p2 a point bounding the curve
- * @param t the time step along the curve to determine where the point is.  should be between zero and 1
- * @return the position on the curve corresponding to the time step provided
- */
-Vector2D gfc_shape_get_bezier_point_2d(Vector2D p0, Vector2D p1, Vector2D p2,float t);
-
-/**
- * @brief get the interpolated point along a bezier curve described by the points provided in 3d space
- * @param p0 a point bounding the curve
- * @param p1 a point bounding the curve
- * @param p2 a point bounding the curve
- * @param t the time step along the curve to determine where the point is.  should be between zero and 1
- * @return the position on the curve corresponding to the time step provided
- */
-Vector3D gfc_shape_get_bezier_point_3d(Vector3D p0, Vector3D p1, Vector3D p2,float t);
-
-/**
- * @brief get a list of points that describe a bezier curve bound by the 3 points provided in 2D
- * @param p0 a point bounding the curve
- * @param p1 a point bounding the curve
- * @param p2 a point bounding the curve
- * @param count how many points should be in the list
- * @return NULL on error or a list of points for a bezier curve.
- */
-List *gfc_shape_get_bezier_point_list_2d(Vector2D p0, Vector2D p1, Vector2D p2,Uint32 count);
-
-/**
- * @brief get a list of points that describe a bezier curve bound by the 3 points provided in 3D
- * @param p0 a point bounding the curve
- * @param p1 a point bounding the curve
- * @param p2 a point bounding the curve
- * @param count how many points should be in the list
- * @return NULL on error or a list of points for a bezier curve.
- */
-List *gfc_shape_get_bezier_point_list_3d(Vector3D p0, Vector3D p1, Vector3D p2,Uint32 count);
-
-/**
- * @brief free a point list, works for both 2d and 3d
- * @param list the list of points (as created from above) to delete
- * @note the list itself is also deleted
- */
-void gfc_shape_point_list_free(List *list);
 
 #endif

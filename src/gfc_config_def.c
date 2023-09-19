@@ -39,7 +39,7 @@ void gfc_config_def_load(const char *filename)
     json = gfc_pak_load_json(filename);
     if (!json)
     {
-        slog("failed to load config def file %s",filename);
+        slog("failed to load config def file %s");
         return;
     }
     gfc_list_append(config_manager.defs,json);
