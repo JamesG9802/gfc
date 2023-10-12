@@ -99,6 +99,11 @@ Uint8 gfc_input_key_released(const char *key);
 Uint8 gfc_input_key_held(const char *key);
 Uint8 gfc_input_key_down(const char *key);
 
+Uint8 gfc_input_keycode_pressed(SDL_Scancode key);
+Uint8 gfc_input_keycode_released(SDL_Scancode key);
+Uint8 gfc_input_keycode_held(SDL_Scancode key);
+Uint8 gfc_input_keycode_down(SDL_Scancode key);
+
 /**
  * @brief check if the mouse wheel is moving in the indicated direction
  * @return 0 if it is not, 1 if it is

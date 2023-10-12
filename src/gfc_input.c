@@ -896,6 +896,35 @@ Uint8 gfc_input_key_down(const char *key)
     return 0;
 }
 
+
+Uint8 gfc_input_keycode_pressed(SDL_Scancode key) {
+    SDL_Scancode kc = key;
+    if (kc == -1)return 0;
+    if ((!gfc_input_data.input_old_keys[kc]) && (gfc_input_data.input_keys[kc]))return 1;
+    return 0;
+}
+Uint8 gfc_input_keycode_released(SDL_Scancode key) {
+    SDL_Scancode kc = key;
+    if (kc == -1)return 0;
+    if ((gfc_input_data.input_old_keys[kc]) && (!gfc_input_data.input_keys[kc]))return 1;
+    return 0;
+}
+Uint8 gfc_input_keycode_held(SDL_Scancode key) {
+    SDL_Scancode kc = key;
+    if (kc == -1)return 0;
+    if ((gfc_input_data.input_old_keys[kc]) && (gfc_input_data.input_keys[kc]))return 1;
+    return 0;
+}
+Uint8 gfc_input_keycode_down(SDL_Scancode key) {
+    SDL_Scancode kc = key;
+    if (kc == -1)return 0;
+    if (gfc_input_data.input_keys[kc])
+    {
+        return 1;
+    }
+    return 0;
+}
+
 void gfc_input_parse_command_json(SJson *command)
 {
     SJson *value,*list;
