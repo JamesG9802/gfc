@@ -243,5 +243,14 @@ void gfc_matrix_scale(
     Vector3D scale
 );
 
+/**
+ * @brief transpose a matrix 
+ * @param out the result of the transpose
+ * @param in the matrix that will be transposed
+ */
+void gfc_matrix_transpose(
+    Matrix4 out,
+    Matrix4 in
+);
 
 #endif

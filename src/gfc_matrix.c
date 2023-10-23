@@ -658,3 +658,19 @@ void gfc_matrix_translate(
     gfc_matrix_multiply(temp,out,translate);
     gfc_matrix_copy(out,temp);
 }
+
+void gfc_matrix_transpose(
+    Matrix4 out,
+    Matrix4 in
+)
+{
+    int i, j;
+    if (!out) return;
+    for (i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            out[i][j] = in[j][i];
+        }
+    }
+}
