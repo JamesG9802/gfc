@@ -666,11 +666,13 @@ void gfc_matrix_transpose(
 {
     int i, j;
     if (!out) return;
+    Matrix4 temp = {0};
     for (i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)
         {
-            out[i][j] = in[j][i];
+            temp[i][j] = in[j][i];
         }
     }
+    memcpy(out, temp, sizeof(Matrix4));
 }
